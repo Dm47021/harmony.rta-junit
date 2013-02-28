@@ -141,15 +141,19 @@ public class JavaClass implements Serializable {
 		LinkedList<JavaClass> visited = new LinkedList<JavaClass>();
 		queue.add(this);
 		queue.addAll(childrenClass);
+//		System.out.println("----------------------");
 //		System.out.println("Looking for "+methodSignature+" in hierarchy of "+this.qualifiedName);
 //		System.out.println("Class Created");
 //		for(JavaClass j : classCreated) {
 //			System.out.println("\t * "+j.getQualifiedName());
 //		}
+//		System.out.println(queue.size());
+//		System.out.println(childrenClass.size());
 		while (!queue.isEmpty()) {
 			JavaClass c = queue.removeFirst();
-
+		
 			if (classCreated.contains(c)) {
+			
 				JavaMethod jm = c.hasSignature(methodSignature);
 				if (jm != null && !reachables.contains(jm)) {
 					reachables.add(jm);
@@ -162,6 +166,7 @@ public class JavaClass implements Serializable {
 					queue.add(child);
 				}
 		}
+		
 	}
 
 	@Override

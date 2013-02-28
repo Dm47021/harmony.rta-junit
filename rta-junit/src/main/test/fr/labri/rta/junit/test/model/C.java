@@ -1,4 +1,4 @@
-package fr.labri;
+package fr.labri.rta.junit.test.model;
 
 public class C extends B {
 	

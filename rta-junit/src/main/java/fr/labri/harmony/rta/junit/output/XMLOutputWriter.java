@@ -25,6 +25,8 @@ public class XMLOutputWriter implements OutputWriter {
 		for(HashElement test : closure.keySet()) {
 			Element test_config = new Element("test_configuration");
 			Element id = new Element("test_id");
+			System.out.println("------------------------------");
+			
 			Attribute res = new Attribute("result","true");
 			Attribute testid = null;
 			Attribute hash = null;
@@ -42,7 +44,7 @@ public class XMLOutputWriter implements OutputWriter {
 			id.setAttribute(res);
 			id.setAttribute(testid);
 			id.setAttribute(hash);
-
+			System.out.println(testid);
 			test_config.addContent(id);
 			Element depTest = new Element("dependencies");
 			for(HashElement dep : closure.get(test)) {
@@ -59,6 +61,7 @@ public class XMLOutputWriter implements OutputWriter {
 				}
 				//System.out.println(idprog+" "+idHash);
 				prog.setAttribute(idprog);
+				System.out.println("\t"+idprog);
 				prog.setAttribute(idHash);
 				depTest.addContent(prog);
 			}

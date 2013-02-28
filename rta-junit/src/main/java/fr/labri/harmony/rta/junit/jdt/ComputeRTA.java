@@ -26,7 +26,8 @@ public class ComputeRTA {
 
 		LinkedList<String> callSites = new LinkedList<>();
 		Set<JavaClass> classCreated = new HashSet<>();
-
+		
+		
 		classCreated.add(entryPoint.getClassName());
 		if(index.containsKey(entryPoint.getClassName())) {
 			reachableImplems.addAll(index.get(entryPoint.getClassName()).getFirst());
@@ -135,6 +136,7 @@ public class ComputeRTA {
 									}
 								}
 							}
+							
 							c.findSignatureInHierarchy(tk[1],classCreated,newReachableImplems);
 							for(JavaMethod jvm : newReachableImplems) {
 								if(!knownImplem.contains(jvm)) {

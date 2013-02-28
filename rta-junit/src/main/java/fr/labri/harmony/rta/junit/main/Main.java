@@ -18,10 +18,11 @@ public class Main {
 		JDTGeneratorRTA g = new JDTGeneratorRTA(f);
 		g.updateConfiguration();
 		g.scanDirectory();
-
+		
 		Map<HashElement, Set<HashElement>> closure = g.computeClosure();
 		
 		OutputWriter writer = new XMLOutputWriter();
+		
 		writer.saveOutput(closure,"coverage.xml");
 		
 	}

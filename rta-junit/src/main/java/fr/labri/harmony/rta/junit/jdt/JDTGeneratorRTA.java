@@ -114,7 +114,8 @@ public class JDTGeneratorRTA {
 		for (File file : javaFiles) {
 			generate(file.getAbsoluteFile().getAbsolutePath());
 		}
-	
+
+		
 	}
 
 	public Map<HashElement, Set<HashElement>> computeClosure() {

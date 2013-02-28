@@ -128,15 +128,16 @@ public class JDTVisitorRTA extends ASTVisitor {
 		if(tb!=null) {
 
 			String id = tb.getQualifiedName();
-
+			
 			currentClass = getJavaClass(id);
+		
 			if(currentTypeHashcode!=-1)
 				previousHashCode=currentTypeHashcode;
 			currentTypeHashcode = td.toString().hashCode();
 			if(!currentClasses.containsKey(currentTypeHashcode))
 				currentClasses.put(currentTypeHashcode, currentClass);
 
-			currentClass.getChildrenClass().clear();
+			//currentClass.getChildrenClass().clear();
 			currentClass.getParentClass().clear();
 			currentClass.getClassPublicFieldInstancied().clear();
 			currentClass.getClassPrivateFieldInstancied().clear();
@@ -150,6 +151,7 @@ public class JDTVisitorRTA extends ASTVisitor {
 
 		if(tb.getSuperclass()!=null && !tb.getSuperclass().getQualifiedName().equals("java.lang.Object")) {
 			JavaClass jc = getJavaClass(tb.getSuperclass().getQualifiedName());
+			
 			if(jc!=null ){
 				jc.getChildrenClass().add(currentClass);
 				currentClass.getParentClass().add(jc);
@@ -316,8 +318,12 @@ public class JDTVisitorRTA extends ASTVisitor {
 		if(!classes.containsKey(qualifiedName)) {
 			classes.put(qualifiedName, new JavaClass());
 			classes.get(qualifiedName).setQualifiedName(qualifiedName);
+			//System.out.println("Add class "+qualifiedName);
 		}
-
+		else {
+			//System.out.println("Return class "+qualifiedName+" "+ classes.get(qualifiedName).getChildrenClass().size());
+			
+		}
 		return classes.get(qualifiedName);
 	}
 
