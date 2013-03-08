@@ -46,9 +46,9 @@ public class Differ {
 	}
 
 	public static void main(String[] args) throws IOException {
-		 if (true)
-		 args = new String[] { "/tmp/trace 2/trace1.log",
-		 "/tmp/trace 2/trace2.log", "." };
+//		 if (true)
+//		 args = new String[] { "/tmp/trace 2/trace1.log",
+//		 "/tmp/trace 2/trace2.log", "." };
 
 		if (args.length < 2) {
 			System.err.println("Syntax: <traceFile1> <traceFile2> [patterns*]");
