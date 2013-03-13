@@ -26,12 +26,12 @@ public class Differ {
 
 	ArrayList<Pattern> _patterns = new ArrayList<>();
 
-	Differ(Reader left, Reader right) {
+	public Differ(Reader left, Reader right) {
 		_left = new MyReader(left);
 		_right = new MyReader(right);
 	}
 
-	Differ(Reader left, Reader right, String[] patterns) {
+	public Differ(Reader left, Reader right, String[] patterns) {
 		this(left, right);
 		addPatterns(patterns);
 	}
