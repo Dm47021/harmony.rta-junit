@@ -18,6 +18,8 @@ public class Differ {
 
 	final static int _skipLines = Integer.parseInt(System.getProperty(
 			"differ.skipLines", "2"));
+	final static int _stripLines = Integer.parseInt(System.getProperty(
+			"differ.stripLines", "9"));
 	boolean _exlcude = Boolean.parseBoolean(System.getProperty(
 			"differ.exclude", "false"));
 
@@ -102,8 +104,7 @@ public class Differ {
 		} catch (EOFException ee) {
 			throw new IOException("Right is shorter than left");
 		}
-
-		return l.equals(r) ? l : null;
+		return l.regionMatches(_stripLines, r, _stripLines, l.length() - _stripLines) ? l : null;
 	}
 
 	private boolean diffMethodContent() throws IOException {
