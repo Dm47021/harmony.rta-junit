@@ -1,5 +1,6 @@
 package fr.labri.harmony.rta.junit.main;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,18 +14,19 @@ import fr.labri.harmony.rta.junit.output.XMLOutputWriter;
 public class Main {
 	
 	public static void main(String[] args) {
+//		
+//		String f = "src/main/test";
+//		JDTGeneratorRTA g = new JDTGeneratorRTA(f);
+//		g.updateConfiguration();
+//		g.scanDirectory();
+//		
+//		Map<HashElement, Set<HashElement>> closure = g.computeClosure();
+//		
+//		OutputWriter writer = new XMLOutputWriter();
+//		
+//		writer.saveOutput(closure,"coverage.xml");
 		
-		String f = "src/main/test";
-		JDTGeneratorRTA g = new JDTGeneratorRTA(f);
-		g.updateConfiguration();
-		g.scanDirectory();
-		
-		Map<HashElement, Set<HashElement>> closure = g.computeClosure();
-		
-		OutputWriter writer = new XMLOutputWriter();
-		
-		writer.saveOutput(closure,"coverage.xml");
-		
+		Runner.runTwoTrace(RunTest.class.getCanonicalName(), Arrays.asList("fr.labri.harmony.rta.junit.main.RunTest","fr.labri.harmony.rta.junit.main.ClassTest","test1"), new String[]{"fr.labri.harmony.rta.junit.main.ClassTest"});
 	}
 	
 }

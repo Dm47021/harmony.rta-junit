@@ -24,7 +24,7 @@ public class RunTest {
 			
 			JUnitCore core = new JUnitCore();
 			Result res = core.run(req);
-
+			System.out.println(res.wasSuccessful());
 			System.exit(res.wasSuccessful() ? 0 : 1);
 		}
 		

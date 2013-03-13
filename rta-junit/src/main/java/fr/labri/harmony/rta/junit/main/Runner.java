@@ -10,11 +10,11 @@ import java.util.List;
 import fr.labri.harmony.Differ;
 
 public class Runner {
-	static String DEFAULT_VM = System.getProperty("runner.testvm", "java");
+	static String DEFAULT_VM = "/home/cedric/Documents/jdk1.7.0/fastdebug/bin/java";
 	static String DEV_NULL =  System.getProperty("runner.null", "/dev/null");
 
 	static List<String> DEFAULT_VM_ARGS = Arrays
-			.asList(new String[] { "-XX:+TraceByteCodes" });
+			.asList(new String[] { "-XX:+TraceBytecodes" });
 
 	static int spawnVM(String className, List<String> args, File output)
 			throws IOException, InterruptedException {
@@ -27,7 +27,7 @@ public class Runner {
 		pargs.add(className);
 		if (args != null)
 			pargs.addAll(args);
-
+		
 		ProcessBuilder pb = new ProcessBuilder(pargs).redirectError(
 				new File(DEV_NULL)).redirectOutput(output);
 		System.err.println(pb.command());
@@ -61,15 +61,15 @@ public class Runner {
 					read.close();
 				} catch (IOException e) {
 				}
-			if (r != 0)
-				out.delete();
+//			if (r != 0)
+//				out.delete();
 			if (readtmp != null)
 				try {
 					read.close();
 				} catch (IOException e) {
 				}
-			if (outtmp != null)
-				outtmp.delete();
+//			if (outtmp != null)
+//				outtmp.delete();
 		}
 	}
 }

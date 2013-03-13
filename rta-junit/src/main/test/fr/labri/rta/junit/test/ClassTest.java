@@ -1,5 +1,6 @@
 package fr.labri.rta.junit.test;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -25,17 +26,28 @@ public class ClassTest {
 	
 	@BeforeClass
 	public static void setUpClass() {
+		System.out.println("Set up class");
 		a = new A();
 	}
 	
 	@Before
 	public void setUp() {
+		System.out.println("set up");
 		b = new B();
 	}
 	
 	@Test
 	public void test1() {
-		a.foo();
+		System.out.println("test 1");
+		try {
+			//Runtime.getRuntime().exec(new String[]{"touch","/tmp/yo.txt"});
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//a.foo();
 	}
 	
 	@Test
