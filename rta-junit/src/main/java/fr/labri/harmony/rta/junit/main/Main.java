@@ -1,5 +1,6 @@
 package fr.labri.harmony.rta.junit.main;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
@@ -26,7 +27,8 @@ public class Main {
 //		
 //		writer.saveOutput(closure,"coverage.xml");
 		
-		Runner.runTwoTrace(RunTest.class.getCanonicalName(), Arrays.asList("fr.labri.harmony.rta.junit.main.RunTest","fr.labri.harmony.rta.junit.main.ClassTest","test1"), new String[]{"fr.labri.harmony.rta.junit.main.ClassTest"});
+		File out = Runner.runTwoTrace(RunTest.class.getCanonicalName(), Arrays.asList("fr.labri.harmony.rta.junit.main.RunTest","fr.labri.harmony.rta.junit.main.ClassTest","test1"), new String[]{"fr.labri.harmony.rta.junit.main.ClassTest"});
+		System.out.println(out);
 	}
 	
 }
